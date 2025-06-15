@@ -19,7 +19,7 @@ export default function StreamingPage() {
     try {
       const params = new URLSearchParams({ page, limit, search });
       if (category) params.append('category', category);
-      const res = await fetch(`http://localhost:5000/movies/list?${params.toString()}`);
+      const res = await fetch(`https://streamhub-backend-production.up.railway.app/movies/list?${params.toString()}`);
       const data = await res.json();
       if (append) setMoviesData(prev => [...prev, ...data.movies]);
       else setMoviesData(data.movies);
@@ -63,7 +63,7 @@ export default function StreamingPage() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch('http://localhost:5000/categories?action=get_vod_categories');
+        const res = await fetch('https://streamhub-backend-production.up.railway.app/categories?action=get_vod_categories');
         const data = await res.json();
         setCategories([{ category_id: null, category_name: 'All' }, ...data]);
       } catch (error) {

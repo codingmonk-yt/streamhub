@@ -11,7 +11,7 @@ export default function SeriesDetailPage() {
   useEffect(() => {
     const fetchSeriesDetail = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/series/detail?id=${id}`);
+        const res = await fetch(`https://streamhub-backend-production.up.railway.app/series/detail?id=${id}`);
         const data = await res.json();
         setSeriesDetail(data);
         console.log('Series details fetched:', data);

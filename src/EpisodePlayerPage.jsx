@@ -13,7 +13,7 @@ export default function EpisodePlayerPage() {
     const fetchPlaybackLink = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/series/episode/link?episode_id=${episodeId}&container_extension=${containerExtension}`
+          `https://streamhub-backend-production.up.railway.app/series/episode/link?episode_id=${episodeId}&container_extension=${containerExtension}`
         );
         const data = await res.json();
         setPlaybackLink(data.link);

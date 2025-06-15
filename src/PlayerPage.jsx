@@ -10,7 +10,7 @@ export default function PlayerPage() {
   useEffect(() => {
     const fetchLink = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/movies/${id}/link`);
+        const res = await fetch(`https://streamhub-backend-production.up.railway.app/movies/${id}/link`);
         const data = await res.json();
         setLink(data.link);
       } catch (error) {
