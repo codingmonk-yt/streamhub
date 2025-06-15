@@ -161,7 +161,7 @@ export default function StreamingPage() {
                 }
               }}
               className={`px-4 py-2 rounded-full min-w-fit text-sm font-medium transition-colors duration-200 ${selectedCategory === category.category_id ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'}`}
-              disabled={selectedCategory === category.category_id}
+              // disabled={selectedCategory === category.category_id}
             >
               {category.category_name}
             </button>
