@@ -5,14 +5,14 @@ import { useNavigate } from 'react-router-dom';
 export default function HomePage() {
     const navigate = useNavigate();
   const streamingOptions = [
-    // {
-    //   id: 'live-tv',
-    //   title: 'Live TV',
-    //   description: 'Watch live channels and broadcasts',
-    //   icon: Tv,
-    //   gradient: 'from-red-500 to-pink-600',
-    //   hoverGradient: 'from-red-600 to-pink-700'
-    // },
+    {
+      id: 'live-tv',
+      title: 'Live TV',
+      description: 'Watch live channels and broadcasts',
+      icon: Tv,
+      gradient: 'from-red-500 to-pink-600',
+      hoverGradient: 'from-red-600 to-pink-700'
+    },
     {
       id: 'movies',
       title: 'Movies',
@@ -58,7 +58,7 @@ export default function HomePage() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {streamingOptions.map((option) => {
               const IconComponent = option.icon;
               return (

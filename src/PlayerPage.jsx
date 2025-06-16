@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import { API_URL } from './utils/config';
 
 export default function PlayerPage() {
   const { id } = useParams();
@@ -10,7 +11,7 @@ export default function PlayerPage() {
   useEffect(() => {
     const fetchLink = async () => {
       try {
-        const res = await fetch(`https://streamhub-backend-production.up.railway.app/movies/${id}/link`);
+        const res = await fetch(`${API_URL}/movies/${id}/link`);
         const data = await res.json();
         setLink(data.link);
       } catch (error) {

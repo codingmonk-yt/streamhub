@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Play } from 'lucide-react';
+import { API_URL } from './utils/config';
 
 export default function SeriesDetailPage() {
   const { id } = useParams();
@@ -11,7 +12,7 @@ export default function SeriesDetailPage() {
   useEffect(() => {
     const fetchSeriesDetail = async () => {
       try {
-        const res = await fetch(`https://streamhub-backend-production.up.railway.app/series/detail?id=${id}`);
+        const res = await fetch(`${API_URL}/series/detail?id=${id}`);
         const data = await res.json();
         setSeriesDetail(data);
         console.log('Series details fetched:', data);

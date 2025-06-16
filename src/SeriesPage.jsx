@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Star, Play } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from './utils/config';
 
 export default function SeriesPage() {
   const [seriesData, setSeriesData] = useState([]);
@@ -17,7 +18,7 @@ export default function SeriesPage() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch('https://streamhub-backend-production.up.railway.app/categories?action=get_series_categories');
+        const res = await fetch(`${API_URL}/categories?action=get_series_categories`);
         const data = await res.json();
         setCategories([{ category_id: null, category_name: 'All' }, ...data]);
       } catch (error) {
@@ -32,7 +33,7 @@ export default function SeriesPage() {
     try {
       const params = new URLSearchParams({ page, limit, search });
       if (category) params.append('category', category);
-      const res = await fetch(`https://streamhub-backend-production.up.railway.app/series/list?${params.toString()}`);
+      const res = await fetch(`${API}/series/list?${params.toString()}`);
       const data = await res.json();
       if (append) setSeriesData(prev => [...prev, ...data.series]);
       else setSeriesData(data.series);
