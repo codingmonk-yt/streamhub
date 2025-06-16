@@ -33,7 +33,7 @@ export default function SeriesPage() {
     try {
       const params = new URLSearchParams({ page, limit, search });
       if (category) params.append('category', category);
-      const res = await fetch(`${API}/series/list?${params.toString()}`);
+      const res = await fetch(`${API_URL}/series/list?${params.toString()}`);
       const data = await res.json();
       if (append) setSeriesData(prev => [...prev, ...data.series]);
       else setSeriesData(data.series);
